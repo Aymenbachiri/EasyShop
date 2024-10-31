@@ -1,36 +1,27 @@
 import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: "https://easyshop.vercel.app",
-      lastModified: "2024-10-19",
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: "https://easyshop.vercel.app/about",
-      lastModified: "2024-10-19",
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: "https://easyshop.vercel.app/signin",
-      lastModified: "2024-10-19",
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: "https://easyshop.vercel.app/signup",
-      lastModified: "2024-10-19",
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-    {
-      url: "https://easyshop.vercel.app/products",
-      lastModified: "2024-10-19",
-      changeFrequency: "weekly",
-      priority: 0.5,
-    },
-  ];
+const locales = ["en", "fr"];
+const staticRoutes = ["", "/about", "/products"];
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const localizedRoutes = staticRoutes.flatMap((route) =>
+    locales.map((locale) => ({
+      url: `https://easyshop.vercel.app${locale === "en" ? "" : `/${locale}`}${route}`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: "weekly" as const,
+      priority: route === "" ? 1 : 0.8,
+      alternates: {
+        languages: locales.reduce(
+          (acc, lang) => {
+            acc[lang] =
+              `https://easyshop.vercel.app${lang === "en" ? "" : `/${lang}`}${route}`;
+            return acc;
+          },
+          {} as Record<string, string>,
+        ),
+      },
+    })),
+  );
+
+  return localizedRoutes;
 }
