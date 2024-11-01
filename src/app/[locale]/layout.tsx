@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { Providers } from "@/lib/providers/Providers";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -17,6 +18,7 @@ export default async function LocaleLayout({
   params: Params;
 }) {
   const { locale } = await params;
+  const dir = locale === "ar" ? "rtl" : "ltr";
   const messages = await getMessages();
   if (!routing.locales.includes(locale as any)) {
     notFound();
@@ -24,7 +26,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <main lang={locale}>
+    <main lang={locale} dir={dir}>
       <NextIntlClientProvider locale={locale} messages={messages}>
         {children}
       </NextIntlClientProvider>
