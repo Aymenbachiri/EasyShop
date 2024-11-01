@@ -1,3 +1,4 @@
+import Navbar from "@/components/navbar/Navbar";
 import { LenisScrollProvider } from "./LenisScrollProvider";
 //import { ReduxProvider } from "./ReduxProvider";
 import { ThemeProvider } from "./ThemeProvider";
@@ -12,6 +13,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         {/* <ReduxProvider></ReduxProvider> */}
         <LenisScrollProvider />
         <NextTopLoader />
+        <Navbar />
         {children}
         <Toaster position="top-center" />
       </ThemeProvider>
