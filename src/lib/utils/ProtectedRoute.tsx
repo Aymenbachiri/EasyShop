@@ -1,19 +1,27 @@
+import { MyImage } from "@/components/common/MyImage";
 import { Protect } from "@clerk/nextjs";
 
 export function ProtectedRoute({ children }: { children: React.ReactNode }) {
   return (
     <Protect
       fallback={
-        <main className="flex h-screen items-center justify-center bg-gray-100 p-4 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
-          <section className="flex items-center justify-center gap-5 space-y-4 text-center">
-            <img
-              src="https://cdn2.vectorstock.com/i/1000x1000/96/31/sign-in-with-hand-pointer-icon-login-symbol-vector-2849631.jpg" // Replace with your image path
+        <main
+          style={{ gap: 60 }}
+          className="flex h-screen flex-col items-center justify-center gap-10 p-4 md:flex-row"
+        >
+          <section>
+            <MyImage
+              src={"/assets/images/signin-required.webp"}
               alt="Sign in required"
-              className="mx-auto w-1/2 object-contain md:w-1/3 lg:w-1/4"
-              style={{ maxWidth: "300px", borderRadius: "50%" }}
+              width={400}
+              height={400}
+              sizes="(min-width: 1020px) 400px, (min-width: 780px) calc(37.73vw + 23px), (min-width: 460px) 400px, calc(94.29vw - 15px)"
+              className="rounded-2xl"
             />
-            <p className="pl-10 text-lg font-semibold">
-              Sign in required to view this page
+          </section>
+          <section>
+            <p className="text-2xl md:text-3xl">
+              Sign in required to access this page
             </p>
           </section>
         </main>
