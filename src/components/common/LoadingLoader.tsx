@@ -1,10 +1,14 @@
-export function LoadingLoader() {
+export function LoadingLoader({
+  style = { minHeight: "100vh" },
+}: {
+  style?: React.CSSProperties;
+}) {
   return (
     <main
       aria-label="Loading..."
       role="status"
       className="flex items-center justify-center space-x-2"
-      style={{ minHeight: "100vh" }}
+      style={style}
     >
       <svg
         className="h-20 w-20 animate-spin stroke-gray-500"
