@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "@/lib/providers/Providers";
-import { generateMetadata } from "@/lib/utils/generateMetadata";
+import { MetadataFunction } from "@/lib/utils/metadataFunction";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,7 +16,7 @@ const geistMono = localFont({
 
 const url = process.env.NEXT_PUBLIC_URL;
 
-export const metadata = generateMetadata({
+export const metadata = MetadataFunction({
   title: "EasyShop | Shop the Best Deals Online - Electronics, Fashion & More",
   description:
     "Discover unbeatable prices and exclusive deals on SwiftBuy, your one-stop online shop for electronics, fashion, home essentials, and more. Fast shipping, secure checkout, and 24/7 customer support for a seamless shopping experience. Shop now!",

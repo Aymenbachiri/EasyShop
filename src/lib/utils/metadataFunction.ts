@@ -14,7 +14,7 @@ type MetadataProps = {
   image: MetadataImage;
 };
 
-export function generateMetadata({
+export function MetadataFunction({
   title,
   description,
   url,

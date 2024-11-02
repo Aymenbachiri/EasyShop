@@ -1,11 +1,11 @@
 import ProductsPage from "@/page/ProductsPage";
-import { generateMetadata } from "@/lib/utils/generateMetadata";
+import { MetadataFunction } from "@/lib/utils/metadataFunction";
 import { AppearAnimation } from "@/lib/animation/AppearAnimation";
 import { MySuspense } from "@/lib/utils/MySuspense";
 
 const url = process.env.NEXT_PUBLIC_URL;
 
-export const metadata = generateMetadata({
+export const metadata = MetadataFunction({
   title: "Products | EasyShop",
   description:
     "Discover the best deals on products you love, all in one place. At EasyShop, we offer a seamless shopping experience tailored just for you.",
