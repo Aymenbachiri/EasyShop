@@ -2,14 +2,24 @@ import SingleProductPage from "@/page/SingleProductPage";
 import type { Metadata } from "next";
 import { getProductById } from "../_lib/getProductById";
 import { MetadataFunction } from "@/lib/utils/metadataFunction";
+import { getProducts, type ProductsType } from "../_lib/getProducts";
+
+export async function generateStaticParams(): Promise<{ productId: number }[]> {
+  const products: ProductsType[] = await getProducts();
+  return products.map((product) => ({
+    productId: product.id,
+  }));
+}
 
 const url = process.env.NEXT_PUBLIC_URL;
 
-type Props = {
-  params: { productId: number };
-};
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const ProductId = params.productId;
+type Params = Promise<{ productId: number }>;
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
+  const ProductId = (await params).productId;
   const product = await getProductById(ProductId);
 
   return MetadataFunction({
@@ -23,7 +33,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-type Params = Promise<{ productId: number }>;
-export default async function page({ params }: { params: Params }) {
+export default function page({ params }: { params: Params }) {
   return <SingleProductPage params={params} />;
 }
