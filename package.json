@@ -16,7 +16,6 @@
     "framer-motion": "^11.11.10",
     "lenis": "^1.1.14",
     "next": "15.0.2",
-    "next-intl": "^3.24.0",
     "next-themes": "^0.3.0",
     "nextjs-toploader": "^3.7.15",
     "react": "19.0.0-rc-02c0e824-20241028",

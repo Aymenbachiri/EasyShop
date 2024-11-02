@@ -20,7 +20,6 @@ export function generateMetadata({
   url,
   image,
 }: MetadataProps): Metadata {
-  // Create the image object with fallback values
   const imageObject = {
     url: image.url,
     width: image.width ?? 1200,
@@ -29,7 +28,7 @@ export function generateMetadata({
   };
 
   return {
-    metadataBase: new URL(url), // Add metadataBase for absolute URLs
+    metadataBase: new URL(url),
     title,
     description,
     openGraph: {
@@ -37,7 +36,7 @@ export function generateMetadata({
       description,
       type: "website",
       url: url,
-      siteName: "SwiftBuy", // Add siteName for better SEO
+      siteName: "SwiftBuy",
       images: [imageObject],
     },
     twitter: {
@@ -46,7 +45,6 @@ export function generateMetadata({
       description,
       images: [imageObject],
     },
-    // Add these optional but recommended fields
     robots: {
       index: true,
       follow: true,
