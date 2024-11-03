@@ -11,7 +11,7 @@ export type ProductsType = {
 
 export async function getProducts(): Promise<ProductsType[]> {
   try {
-    const res = await fetch(`${API_URL}/products`, { cache: "no-store" });
+    const res = await fetch(`${API_URL}/products`);
 
     if (!res.ok) {
       throw new Error(

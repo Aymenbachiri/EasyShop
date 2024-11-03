@@ -3,9 +3,7 @@ import { type ProductsType } from "./getProducts";
 
 export async function getProductById(productId: string): Promise<ProductsType> {
   try {
-    const res = await fetch(`${API_URL}/products/${productId}`, {
-      cache: "no-store",
-    });
+    const res = await fetch(`${API_URL}/products/${productId}`);
 
     if (!res.ok) {
       throw new Error(
