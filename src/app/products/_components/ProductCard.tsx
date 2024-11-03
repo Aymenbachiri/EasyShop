@@ -12,7 +12,7 @@ export function ProductCard({ product }: { product: ProductsType }) {
       </span>
 
       <img
-        src={image as string}
+        src={(image as string) || "https://placehold.co/600x400"}
         alt={title}
         className="mx-auto flex h-[20em] w-[20em] items-center justify-center rounded-tr-3xl object-cover"
         loading="lazy"

@@ -1,5 +1,7 @@
+import { API_URL } from "@/components/common/Constants";
+
 export type ProductsType = {
-  id: number;
+  id: string;
   title: string;
   price: number;
   category: string;
@@ -9,9 +11,7 @@ export type ProductsType = {
 
 export async function getProducts(): Promise<ProductsType[]> {
   try {
-    const res = await fetch(`https://fakestoreapi.com/products`, {
-      cache: "no-store",
-    });
+    const res = await fetch(`${API_URL}/products`, { cache: "no-store" });
 
     if (!res.ok) {
       throw new Error(

@@ -2,7 +2,7 @@ import { getProductById } from "@/app/products/_lib/getProductById";
 import { type ProductsType } from "@/app/products/_lib/getProducts";
 import { notFound } from "next/navigation";
 
-type Params = Promise<{ productId: number }>;
+type Params = Promise<{ productId: string }>;
 
 export default async function SingleProductPage({
   params,
@@ -10,14 +10,12 @@ export default async function SingleProductPage({
   params: Params;
 }) {
   const { productId } = await params;
-  if (isNaN(Number(productId))) {
-    return notFound();
-  }
+
   const product: ProductsType = await getProductById(productId);
-  const { category, description, image, price, title } = product;
   if (!product) {
     return notFound();
   }
+  const { category, description, image, price, title } = product;
 
   return (
     <main className="mt-[10%] flex min-h-screen items-center justify-center dark:text-white md:mt-[10%]">
@@ -25,7 +23,7 @@ export default async function SingleProductPage({
         <div className="-mx-4 flex flex-wrap">
           <div className="mb-8 w-full px-4 md:w-1/2">
             <img
-              src={image as string}
+              src={(image as string) || "https://placehold.co/600x400"}
               alt={title}
               className="mx-auto mb-4 h-auto w-2/3 rounded-lg shadow-md md:w-full"
               loading="lazy"

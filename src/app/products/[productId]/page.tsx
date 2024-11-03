@@ -4,7 +4,7 @@ import { getProductById } from "../_lib/getProductById";
 import { MetadataFunction } from "@/lib/utils/metadataFunction";
 import { getProducts, type ProductsType } from "../_lib/getProducts";
 
-export async function generateStaticParams(): Promise<{ productId: number }[]> {
+export async function generateStaticParams(): Promise<{ productId: string }[]> {
   const products: ProductsType[] = await getProducts();
   return products.map((product) => ({
     productId: product.id,
@@ -13,7 +13,7 @@ export async function generateStaticParams(): Promise<{ productId: number }[]> {
 
 const url = process.env.NEXT_PUBLIC_URL;
 
-type Params = Promise<{ productId: number }>;
+type Params = Promise<{ productId: string }>;
 export async function generateMetadata({
   params,
 }: {
