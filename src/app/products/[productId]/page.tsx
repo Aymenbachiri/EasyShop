@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { getProductById } from "../_lib/getProductById";
 import { MetadataFunction } from "@/lib/utils/metadataFunction";
 import { getProducts, type ProductsType } from "../_lib/getProducts";
+import { BASE_URL } from "@/components/common/Constants";
 
 export async function generateStaticParams(): Promise<{ productId: string }[]> {
   const products: ProductsType[] = await getProducts();
@@ -10,8 +11,6 @@ export async function generateStaticParams(): Promise<{ productId: string }[]> {
     productId: product.id,
   }));
 }
-
-const url = process.env.NEXT_PUBLIC_URL;
 
 type Params = Promise<{ productId: string }>;
 export async function generateMetadata({
@@ -25,7 +24,7 @@ export async function generateMetadata({
   return MetadataFunction({
     title: product.title,
     description: product.description,
-    url: `${url}/products/${product.id}`,
+    url: `${BASE_URL}/products/${product.id}`,
     image: {
       url: product.image as string,
       alt: product.title,

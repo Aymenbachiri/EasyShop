@@ -2,16 +2,16 @@ import ProductsPage from "@/page/ProductsPage";
 import { MetadataFunction } from "@/lib/utils/metadataFunction";
 import { AppearAnimation } from "@/lib/animation/AppearAnimation";
 import { MySuspense } from "@/lib/utils/MySuspense";
-
-const url = process.env.NEXT_PUBLIC_URL;
+import { ProductCardFallback } from "./_components/ProductCardFallback";
+import { BASE_URL } from "@/components/common/Constants";
 
 export const metadata = MetadataFunction({
   title: "Products | EasyShop",
   description:
     "Discover the best deals on products you love, all in one place. At EasyShop, we offer a seamless shopping experience tailored just for you.",
-  url: `${url}/products`,
+  url: `${BASE_URL}/products`,
   image: {
-    url: `${url}/assets/images/og-images/productsPage-og.jpg`,
+    url: `${BASE_URL}/assets/images/og-images/productsPage-og.jpg`,
     alt: "Products | EasyShop",
   },
 });
@@ -34,7 +34,7 @@ export default function page() {
           </p>
         </AppearAnimation>
       </section>
-      <MySuspense>
+      <MySuspense fallback={<ProductCardFallback />}>
         <ProductsPage />
       </MySuspense>
     </main>

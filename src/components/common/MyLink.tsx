@@ -21,6 +21,7 @@ export function MyLink({
 }: MyLinkProps) {
   return (
     <Link
+      prefetch={true}
       href={href}
       className={className}
       rel={rel}
