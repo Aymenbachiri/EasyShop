@@ -1,9 +1,12 @@
-import SingleProductPage from "@/_page/SingleProductPage";
-import type { Metadata } from "next";
-import { getProductById } from "../_lib/getProductById";
-import { MetadataFunction } from "@/lib/utils/metadataFunction";
-import { getProducts, type ProductsType } from "../_lib/getProducts";
+import EditProductPage from "@/_page/EditProductPage";
+import { getProductById } from "@/app/products/_lib/getProductById";
+import {
+  type ProductsType,
+  getProducts,
+} from "@/app/products/_lib/getProducts";
 import { BASE_URL } from "@/components/common/Constants";
+import { MetadataFunction } from "@/lib/utils/metadataFunction";
+import type { Metadata } from "next";
 
 export async function generateStaticParams(): Promise<{ productId: string }[]> {
   const products: ProductsType[] = await getProducts();
@@ -32,6 +35,6 @@ export async function generateMetadata({
   });
 }
 
-export default function page({ params }: { params: Params }) {
-  return <SingleProductPage params={params} />;
+export default async function page({ params }: { params: Params }) {
+  return <EditProductPage productId={(await params).productId} />;
 }

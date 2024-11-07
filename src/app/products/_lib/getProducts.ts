@@ -7,6 +7,7 @@ export type ProductsType = {
   category: string;
   description: string;
   imageUrl: string | URL;
+  creator?: string;
 };
 
 export async function getProducts(): Promise<ProductsType[]> {

@@ -15,7 +15,7 @@ export default async function SingleProductPage({
   if (!product) {
     return notFound();
   }
-  const { category, description, image, price, title } = product;
+  const { category, description, imageUrl, price, title } = product;
 
   return (
     <main className="mt-[10%] flex min-h-screen items-center justify-center dark:text-white md:mt-[10%]">
@@ -23,7 +23,7 @@ export default async function SingleProductPage({
         <div className="-mx-4 flex flex-wrap">
           <div className="mb-8 w-full px-4 md:w-1/2">
             <img
-              src={(image as string) || "https://placehold.co/600x400"}
+              src={(imageUrl as string) || "https://placehold.co/600x400"}
               alt={title}
               className="mx-auto mb-4 h-auto w-2/3 rounded-lg shadow-md md:w-full"
               loading="lazy"
