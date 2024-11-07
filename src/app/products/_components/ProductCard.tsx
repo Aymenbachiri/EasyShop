@@ -2,7 +2,7 @@ import { MyLink } from "@/components/common/MyLink";
 import type { ProductsType } from "../_lib/getProducts";
 
 export function ProductCard({ product }: { product: ProductsType }) {
-  const { id, image, title, description, category, price } = product;
+  const { id, imageUrl, title, description, category, price } = product;
   const discount = Math.floor(Math.random() * 11);
 
   return (
@@ -12,7 +12,7 @@ export function ProductCard({ product }: { product: ProductsType }) {
       </span>
 
       <img
-        src={(image as string) || "https://placehold.co/600x400"}
+        src={(imageUrl as string) || "https://placehold.co/600x400"}
         alt={title}
         className="mx-auto flex h-[20em] w-[20em] items-center justify-center rounded-tr-3xl object-cover"
         loading="lazy"

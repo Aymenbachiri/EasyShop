@@ -6,7 +6,7 @@ export type ProductsType = {
   price: number;
   category: string;
   description: string;
-  image: string | URL;
+  imageUrl: string | URL;
 };
 
 export async function getProducts(): Promise<ProductsType[]> {
