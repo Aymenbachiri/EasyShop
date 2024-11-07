@@ -1,9 +1,9 @@
-import { API_URL } from "@/components/common/Constants";
+import { apiUrl } from "@/components/common/Constants";
 import { type ProductsType } from "./getProducts";
 
 export async function getProductById(productId: string): Promise<ProductsType> {
   try {
-    const res = await fetch(`${API_URL}/products/${productId}`);
+    const res = await fetch(`${apiUrl}/${productId}`);
 
     if (!res.ok) {
       throw new Error(

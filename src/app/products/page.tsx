@@ -1,4 +1,4 @@
-import ProductsPage from "@/page/ProductsPage";
+import ProductsPage from "@/_page/ProductsPage";
 import { MetadataFunction } from "@/lib/utils/metadataFunction";
 import { AppearAnimation } from "@/lib/animation/AppearAnimation";
 import { MySuspense } from "@/lib/utils/MySuspense";

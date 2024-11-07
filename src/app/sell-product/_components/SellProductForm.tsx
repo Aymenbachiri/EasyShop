@@ -7,6 +7,8 @@ import { SellProduct } from "../_lib/sellProduct";
 export function SellProductForm() {
   const { register, handleSubmit, errors, loading } = SellProduct();
 
+  console.log("Form rendered, errors:", errors);
+
   return (
     <form
       onSubmit={handleSubmit}

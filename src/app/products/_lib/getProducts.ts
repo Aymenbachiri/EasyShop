@@ -1,4 +1,4 @@
-import { API_URL } from "@/components/common/Constants";
+import { apiUrl } from "@/components/common/Constants";
 
 export type ProductsType = {
   id: string;
@@ -11,7 +11,7 @@ export type ProductsType = {
 
 export async function getProducts(): Promise<ProductsType[]> {
   try {
-    const res = await fetch(`${API_URL}/products`);
+    const res = await fetch(apiUrl);
 
     if (!res.ok) {
       throw new Error(

@@ -1,4 +1,4 @@
-import AboutPage from "@/page/AboutPage";
+import AboutPage from "@/_page/AboutPage";
 import { MetadataFunction } from "@/lib/utils/metadataFunction";
 
 const url = process.env.NEXT_PUBLIC_URL;

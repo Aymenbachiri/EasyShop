@@ -10,7 +10,6 @@ export function SellProductBtn({ loading }: SellProductBtnProp) {
       className="flex items-center justify-center gap-1 rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:bg-gray-400"
       type="submit"
       disabled={loading}
-      onClick={() => console.log("submit")}
     >
       {loading && (
         <span className="flex items-center justify-center rounded-md text-white">
