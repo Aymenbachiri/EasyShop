@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { type ProductFormData, productSchema } from "./productSchema";
 import { useRouter } from "next/navigation";
@@ -42,6 +43,7 @@ export function SellProduct() {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<ProductFormData>({
     resolver: zodResolver(productSchema),
@@ -51,9 +53,16 @@ export function SellProduct() {
       category: "men",
       imageurl: "",
       price: 0,
-      creator: user?.firstName || user?.lastName || "Unknown Creator",
+      creator: "Unknown Creator",
     },
   });
+
+  useEffect(() => {
+    if (user) {
+      const creatorName = user.firstName || user.lastName || "Unknown Creator";
+      setValue("creator", creatorName);
+    }
+  }, [user, setValue]);
 
   const onSubmit = async (data: ProductFormData) => {
     if (!user) {
