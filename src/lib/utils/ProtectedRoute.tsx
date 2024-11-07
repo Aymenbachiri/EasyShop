@@ -1,4 +1,5 @@
 import { MyImage } from "@/components/common/MyImage";
+import { MyLink } from "@/components/common/MyLink";
 import { Protect } from "@clerk/nextjs";
 
 export function ProtectedRoute({ children }: { children: React.ReactNode }) {
@@ -19,10 +20,16 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
               className="rounded-2xl"
             />
           </section>
-          <section>
+          <section className="flex flex-col items-center justify-center gap-5">
             <p className="text-2xl md:text-3xl">
               Sign in required to access this page
             </p>
+            <MyLink
+              className="mt-4 text-xl font-medium text-blue-500 hover:underline"
+              href="/signin"
+            >
+              Sign in
+            </MyLink>
           </section>
         </main>
       }
