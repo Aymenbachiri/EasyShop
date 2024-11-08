@@ -5,8 +5,8 @@ import { currentUser } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-export async function DeleteDashboardProductAction(id: string) {
-  const productId = id;
+export async function DeleteDashboardProductAction(formData: FormData) {
+  const productId = formData.get("id") as string;
   const user = await currentUser();
   if (!user) redirect("/signin");
 

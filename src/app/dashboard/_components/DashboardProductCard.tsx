@@ -38,7 +38,7 @@ export function DashboardProductCard({ product }: { product: ProductsType }) {
               </MyLink>
               <DeleteDashboardProductBtn id={product.id} />
               <MyLink
-                href={`/editProduct/${product.id}`}
+                href={`/edit-product/${product.id}`}
                 className="rounded-full bg-gray-500 p-2 text-center font-bold text-white hover:bg-gray-600"
               >
                 <EditIcon />

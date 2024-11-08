@@ -3,7 +3,8 @@ import { DeleteDashboardProductAction } from "../_lib/DeleteDashboardProductActi
 
 export function DeleteDashboardProductBtn({ id }: { id: string }) {
   return (
-    <form action={() => DeleteDashboardProductAction(id)}>
+    <form action={DeleteDashboardProductAction}>
+      <input type="hidden" name="id" value={id} />
       <button
         type="submit"
         className="rounded-full bg-red-500 p-2 font-bold text-white hover:bg-red-600"
