@@ -59,7 +59,7 @@ export function SellProduct() {
 
   useEffect(() => {
     if (user) {
-      const creatorName = user.firstName || user.lastName || "Unknown Creator";
+      const creatorName = user.firstName || "Unknown Creator";
       setValue("creator", creatorName);
     }
   }, [user, setValue]);

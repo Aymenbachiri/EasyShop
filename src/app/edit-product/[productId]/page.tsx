@@ -1,4 +1,4 @@
-import EditProductPage from "@/_page/EditProductPage";
+import EditProductPage from "@/components/_page/EditProductPage";
 import { getProductById } from "@/app/products/_lib/getProductById";
 import {
   type ProductsType,

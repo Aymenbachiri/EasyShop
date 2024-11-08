@@ -1,18 +1,18 @@
-import ProductsPage from "@/components/_page/ProductsPage";
-import { MetadataFunction } from "@/lib/utils/metadataFunction";
-import { AppearAnimation } from "@/lib/animation/AppearAnimation";
-import { MySuspense } from "@/lib/utils/MySuspense";
-import { ProductCardFallback } from "./_components/ProductCardFallback";
+import DashboardPage from "@/components/_page/DashboardPage";
 import { BASE_URL } from "@/components/common/Constants";
+import { AppearAnimation } from "@/lib/animation/AppearAnimation";
+import { MetadataFunction } from "@/lib/utils/metadataFunction";
+import { MySuspense } from "@/lib/utils/MySuspense";
+import { DashboardPageFallback } from "./_components/DashboardPageFallback";
 
 export const metadata = MetadataFunction({
-  title: "Products | EasyShop",
+  title: "Dashboard | EasyShop",
   description:
-    "Discover the best deals on products you love, all in one place. At EasyShop, we offer a seamless shopping experience tailored just for you.",
-  url: `${BASE_URL}/products`,
+    "Manage your products, orders, and more in your EasyShop dashboard.",
+  url: `${BASE_URL}/dashboard/:creator`,
   image: {
-    url: `${BASE_URL}/assets/images/og-images/productsPage-og.jpg`,
-    alt: "Products | EasyShop",
+    url: `${BASE_URL}/assets/images/og-images/dashboardPage-og.jpg`,
+    alt: "Dashboard | EasyShop",
   },
 });
 
@@ -23,19 +23,18 @@ export default function page() {
         <h2 className="mb-6 mt-10 max-w-lg font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl md:mx-auto">
           <AppearAnimation from="top">
             <span className="relative sm:mt-20 md:mt-0">
-              Our Latest Products
+              Welcome to your dashboard
             </span>
           </AppearAnimation>
         </h2>
         <AppearAnimation delay={0.2} from="right">
           <p className="text-base text-gray-700 dark:text-gray-300 md:text-lg">
-            Explore our range of high-quality products, each carefully selected
-            to meet your needs.
+            Manage your products, orders, and more in your EasyShop dashboard.
           </p>
         </AppearAnimation>
       </section>
-      <MySuspense fallback={<ProductCardFallback />}>
-        <ProductsPage />
+      <MySuspense fallback={<DashboardPageFallback />}>
+        <DashboardPage />
       </MySuspense>
     </main>
   );

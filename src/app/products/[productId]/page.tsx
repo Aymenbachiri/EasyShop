@@ -1,4 +1,4 @@
-import SingleProductPage from "@/_page/SingleProductPage";
+import SingleProductPage from "@/components/_page/SingleProductPage";
 import type { Metadata } from "next";
 import { getProductById } from "../_lib/getProductById";
 import { MetadataFunction } from "@/lib/utils/metadataFunction";

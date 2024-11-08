@@ -1,6 +1,6 @@
 import { MetadataFunction } from "@/lib/utils/metadataFunction";
 import { BASE_URL } from "@/components/common/Constants";
-import SellProductPage from "@/_page/SellProductPage";
+import SellProductPage from "@/components/_page/SellProductPage";
 
 export const metadata = MetadataFunction({
   title: "Sell Your Product | EasyShop",
