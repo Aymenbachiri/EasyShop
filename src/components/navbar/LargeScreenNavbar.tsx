@@ -2,6 +2,7 @@ import { NavLinks } from "./NavLinks";
 import ThemeSwitch from "./ThemeSwitch";
 import MobileNavBtn from "./MobileNavBtn";
 import { MyLink } from "../common/MyLink";
+import { ProfileMenu } from "./ProfileMenu";
 
 export function LargeScreenNavbar() {
   return (
@@ -10,10 +11,8 @@ export function LargeScreenNavbar() {
 
       <ul className="hidden items-center justify-between gap-x-8 px-4 md:flex">
         <NavLinks />
-        {/* <IsAuth>
-          <ProfileMenu />
-        </IsAuth>
-        <li>
+        <ProfileMenu />
+        {/* <li>
           <CartLink />
         </li> */}
       </ul>
