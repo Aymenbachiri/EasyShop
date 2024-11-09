@@ -4,7 +4,7 @@ import { ProtectedRoute } from "@/lib/utils/ProtectedRoute";
 export default function SellProductPage() {
   return (
     <ProtectedRoute>
-      <main className="mt-[10%] min-h-screen text-gray-800 dark:text-gray-200">
+      <main className="mb-[150px] mt-[3%] h-[70vh] text-gray-800 dark:text-gray-200 md:mb-[150px] md:mt-0">
         <div className="container mx-auto px-4 py-36">
           <h1 className="mb-4 text-center text-4xl font-bold">
             Sell Your Product
