@@ -3,11 +3,9 @@ import { MyLink } from "../common/MyLink";
 import { DashboardIcon } from "@/lib/icons/DashboardIcon";
 import { SellProductIcon } from "@/lib/icons/SellProductIcon";
 import { LogoutIcon } from "@/lib/icons/LogoutIcon";
-import { SettingsIcon } from "@/lib/icons/SettingsIcon";
 
 const MenuList = [
   { label: "Dashboard", icon: <DashboardIcon />, href: "/dashboard" },
-  { label: "Settings", icon: <SettingsIcon />, href: "/settings" },
   { label: "SellProduct", icon: <SellProductIcon />, href: "/sell-product" },
 ];
 
