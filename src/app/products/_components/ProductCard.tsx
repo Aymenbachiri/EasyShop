@@ -1,5 +1,6 @@
 import { MyLink } from "@/components/common/MyLink";
 import type { ProductsType } from "../_lib/getProducts";
+import { AddToCartBtn } from "@/app/cart/_components/AddToCartBtn";
 
 export function ProductCard({ product }: { product: ProductsType }) {
   const { id, imageUrl, title, description, category, price } = product;
@@ -43,7 +44,7 @@ export function ProductCard({ product }: { product: ProductsType }) {
             See More
           </MyLink>
           <button className="flex items-center justify-center gap-1 rounded-md border bg-indigo-600 px-2 py-[5px] text-sm font-medium uppercase tracking-widest text-white transition-colors duration-300 hover:bg-indigo-700">
-            Add to Cart
+            <AddToCartBtn product={product} />
           </button>
         </section>
       </div>

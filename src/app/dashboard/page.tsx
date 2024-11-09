@@ -9,7 +9,7 @@ export const metadata = MetadataFunction({
   title: "Dashboard | EasyShop",
   description:
     "Manage your products, orders, and more in your EasyShop dashboard.",
-  url: `${BASE_URL}/dashboard/:creator`,
+  url: `${BASE_URL}/dashboard`,
   image: {
     url: `${BASE_URL}/assets/images/og-images/dashboardPage-og.jpg`,
     alt: "Dashboard | EasyShop",

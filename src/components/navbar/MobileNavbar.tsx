@@ -1,3 +1,4 @@
+import { CartLink } from "./CartLink";
 import { MobileNavLinks } from "./MobileNavLinks";
 import { ProfileMenu } from "./ProfileMenu";
 import ThemeSwitch from "./ThemeSwitch";
@@ -9,12 +10,9 @@ export function MobileNavbar() {
       <li className="flex items-center justify-center py-8 text-2xl text-white md:hidden">
         <ProfileMenu />
       </li>
-      {/* <li className="text-2xl py-8">
+      <li className="py-8 text-2xl">
         <CartLink />
       </li>
-      <li className="text-2xl py-8">
-        <LocaleMenu />
-      </li> */}
       <li className="flex items-center justify-center py-8 text-2xl text-white md:hidden">
         <ThemeSwitch />
       </li>

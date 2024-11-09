@@ -6,7 +6,7 @@ export type ProductsType = {
   price: number;
   category: string;
   description: string;
-  imageUrl: string | URL;
+  imageUrl: string;
   creator?: string;
 };
 
